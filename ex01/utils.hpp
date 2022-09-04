@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 14:44:14 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/04 18:44:20 by mmarinel         ###   ########.fr       */
+/*   Created: 2022/09/04 15:37:43 by mmarinel          #+#    #+#             */
+/*   Updated: 2022/09/04 17:51:10 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include <iostream>
+#ifndef COMMON_UTILS_H
+#define COMMON_UTILS_H
 
-int	main( void )
-{
-	Fixed	nbr(1234567);
-	
-	// std::cout << nbr.getRawBits() << std::endl << nbr.toFloat() << std::endl;
-	std::cout << nbr.toFloat() << std::endl;
-	return 0;
-}
+# include "../colors.hpp"
+# include <iostream>
+
+void	print_line(const char *str, const char *color);
+int		int_pow(int nbr, int exp);
+int		int_len(int nbr);
+
+#endif /* COMMON_UTILS_H */

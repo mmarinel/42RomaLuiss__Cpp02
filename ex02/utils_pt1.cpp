@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   horde.cpp                                          :+:      :+:    :+:   */
+/*   utils_pt1.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 23:07:58 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/08/20 10:31:01 by mmarinel         ###   ########.fr       */
+/*   Created: 2022/09/04 15:39:02 by mmarinel          #+#    #+#             */
+/*   Updated: 2022/09/04 15:53:36 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <string>
+#include "utils.hpp"
 
-Zombie	*zombieHorde( int N, std::string name )
+void	print_line(const char *str, const char *color)
 {
-	Zombie	*horde;
-	
-	if (N == 0)
-		return (nullptr);
-	horde = new Zombie[N];
-	for (int i = 0; i < N; i++)
-		horde[i].setName(name);
-	return (horde);
+	std::cout << color << str << RESET << std::endl;
 }

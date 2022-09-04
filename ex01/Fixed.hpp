@@ -17,16 +17,21 @@
 # include "utils.hpp"
 # include <iostream>
 
+# define MAX_DIGITS_INT 10
+
 class Fixed
 {
 private:
 	int					val;
 	static const int	_frac_prt = 8;
 public:
+	float	toFloat( void ) const;
 	int		getRawBits( void );
 	void	setRawBits( int const raw );
 			Fixed();
 			Fixed(Fixed &to_copy);
+			Fixed(const int val);
+			Fixed(const float val);
 			Fixed&	operator = (Fixed &to_copy);
 			~Fixed();
 };

@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.hpp                                           :+:      :+:    :+:   */
+/*   utils_pt1.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 23:08:58 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/08/20 10:29:49 by mmarinel         ###   ########.fr       */
+/*   Created: 2022/09/04 15:39:02 by mmarinel          #+#    #+#             */
+/*   Updated: 2022/09/04 17:50:51 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX01_H
-#define EX01_H
+#include "utils.hpp"
 
-#include "Zombie.hpp"
+void	print_line(const char *str, const char *color)
+{
+	std::cout << color << str << RESET << std::endl;
+}
 
-Zombie	*zombieHorde( int N, std::string name );
+int		int_pow(int nbr, int exp)
+{
+	if (0 == exp)
+		return (1);
+	return (nbr * int_pow(nbr, exp - 1));
+}
 
-#endif /* EX01_H */
+int		int_len(int nbr)
+{
+	if (nbr < 0)
+		return (int_len(-nbr));
+	else
+	{
+		if (nbr < 10)
+			return (1);
+		return (1 + int_len(nbr / 10));
+	}
+}

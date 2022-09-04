@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 19:49:01 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/03 11:43:55 by mmarinel         ###   ########.fr       */
+/*   Created: 2022/09/04 14:37:42 by mmarinel          #+#    #+#             */
+/*   Updated: 2022/09/04 15:45:07 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-#define ZOMBIE_H
+#ifndef FIXED_H
+#define FIXED_H
 
-#include <string>
+# include "../colors.hpp"
+# include "utils.hpp"
+# include <iostream>
 
-class Zombie
+class Fixed
 {
 private:
-	std::string	name;
+	int					val;
+	static const int	_frac_prt = 8;
 public:
-	void	announce( void );
-	void	setName( std::string name);
-			Zombie();
-			Zombie( std::string name );
-			~Zombie();
+	int		getRawBits( void );
+	void	setRawBits( int const raw );
+			Fixed();
+			Fixed(Fixed &to_copy);
+			Fixed&	operator = (Fixed &to_copy);
+			~Fixed();
 };
 
-#endif
+#endif /* Fixed_H */
