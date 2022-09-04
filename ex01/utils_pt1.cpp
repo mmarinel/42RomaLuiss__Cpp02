@@ -28,6 +28,21 @@ int		int_pow(int nbr, int exp)
 	return (nbr * int_pow(nbr, exp - 1));
 }
 
+/**
+ * @brief this function returns the length
+ * of the representation of integer [nbr] in base [radix]
+ * 
+ * @param nbr 
+ * @param radix 
+ * @return int 
+ */
+int		int_len(int	nbr, int radix)
+{
+	if (nbr < radix)
+		return (1);
+	return (1 + int_len(nbr / radix, radix));
+}
+
 void	float_split(float nbr, int *integral_part, int *fract_part)
 {
 	*integral_part = (int)nbr;
