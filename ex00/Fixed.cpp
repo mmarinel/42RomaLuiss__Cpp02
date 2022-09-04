@@ -15,24 +15,28 @@
 int		Fixed::getRawBits( void )
 {
 	print_line("getRawBits member function called", BOLDCYAN);
+
 	return (this->val);
 }
 
 void	Fixed::setRawBits( int const raw )
 {
 	print_line("setRawBits member function called", BOLDCYAN);
+
 	this->val = raw;
 }
 
 Fixed::Fixed()
 {
 	print_line("Default constructor called", GREEN);
+
 	this->val = 0;
 }
 
 Fixed::Fixed(Fixed &to_copy)
 {
 	print_line("Copy constructor called", BOLDGREEN);
+
 	*this = to_copy;
 }
 
