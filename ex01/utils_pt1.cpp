@@ -12,6 +12,10 @@
 
 #include "utils.hpp"
 
+static int	fract_part_as_int(float nbr);
+static int	fract_part_rec(float *fract_part);
+//* end of static declarations
+
 void	print_line(const char *str, const char *color)
 {
 	std::cout << color << str << RESET << std::endl;
@@ -24,14 +28,33 @@ int		int_pow(int nbr, int exp)
 	return (nbr * int_pow(nbr, exp - 1));
 }
 
-int		int_len(int nbr)
+void	float_split(float nbr, int *integral_part, int *fract_part)
 {
-	if (nbr < 0)
-		return (int_len(-nbr));
-	else
-	{
-		if (nbr < 10)
-			return (1);
-		return (1 + int_len(nbr / 10));
-	}
+	*integral_part = (int)nbr;
+	fract_part_rec(nbr - *integral_part, fract_part);
+}
+
+/**
+ * @brief this function recursively takes the fractional part
+ * of a floating point number and stores it in int result
+ * 
+ * @param decimal floating point number with no digits before the dot
+ * @param result int variable where to store fractional part as int
+ * @return int the weight of the previous digit of the fractional part
+ */
+static int	fract_part_rec(float decimal, int *result)
+{
+	float	normalized;
+	int		integral_part;
+	float	fract_part;
+	int		weight;
+
+	if (0 == decimal)
+		return (0);
+	normalized = decimal * 10;
+	integral_part = (int)normalized;
+	fract_part = normalized - integral_part;
+	weight = fract_part_rec(fract_part, result);
+	*result += integral_part * int_pow(10, weight);
+	return (weight + 1);
 }
