@@ -19,5 +19,6 @@
 void	print_line(const char *str, const char *color);
 int		int_pow(int nbr, int exp);
 int		int_len(int nbr);
+void	float_split(float nbr, int *integral_part, int *fract_part);
 
 #endif /* COMMON_UTILS_H */

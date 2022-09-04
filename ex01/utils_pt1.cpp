@@ -43,6 +43,28 @@ int		int_len(int	nbr, int radix)
 	return (1 + int_len(nbr / radix, radix));
 }
 
+/**
+ * @brief this function pads nbr with [bits] bits.
+ * A right-padding is applied if [opt] is 1,
+ * otherwise a left-padding is applied.
+ * 
+ * @param nbr 
+ * @param bits 
+ * @param opt 
+ */
+void	int_bit_pad(int *nbr, int bits, bool opt)
+{
+	if (opt <= 0)
+		return ;
+	else
+	{
+		if (opt)
+			*nbr << bits;
+		else
+			*nbr >> bits;
+	}
+}
+
 void	float_split(float nbr, int *integral_part, int *fract_part)
 {
 	*integral_part = (int)nbr;
