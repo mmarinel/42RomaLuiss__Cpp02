@@ -19,7 +19,7 @@ int		Fixed::getRawBits( void )
 	return (this->val);
 }
 
-void	Fixed::setRawBits( int const raw )
+void	Fixed::setRawBits( int const raw ) const
 {
 	print_line("setRawBits member function called", BOLDCYAN);
 

@@ -21,7 +21,7 @@ class Fixed
 {
 private:
 	int					val;
-	static const int	_frac_prt = 8;
+	static const int	_frac_bits = 8;
 public:
 	int		getRawBits( void );
 	void	setRawBits( int const raw );

@@ -6,7 +6,7 @@
 #    By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 17:34:54 by earendil          #+#    #+#              #
-#    Updated: 2022/09/04 16:28:37 by mmarinel         ###   ########.fr        #
+#    Updated: 2022/09/05 12:50:08 by mmarinel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,8 @@ exercise: .BUILD
 run: .RUN
 	@echo $(CYAN) "\nTests running\n" $(RESET)
 	@./$(NAME)
-	@./$(NAME) 5 mario
-	@./$(NAME) 1 gorg
-	@echo $(BOLDYELLOW) "\nChecking For Leaks" $(RESET)
-	@leaks --atExit -- ./$(NAME) 15 gorg
+# @echo $(BOLDYELLOW) "\nChecking For Leaks" $(RESET)
+# @leaks --atExit -- ./$(NAME) 15 gorg
 #@./$(NAME) 150 gorg
 
 all:

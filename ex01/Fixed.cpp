@@ -14,15 +14,22 @@
 
 float	Fixed::toFloat( void ) const
 {
-	int		int_part;
-	float	frac_part;
-
-	int_part = this->val / int_pow(10, _frac_prt);
-	frac_part = ((float)(this->val - int_part)) * (1.0 / int_pow(10, _frac_prt));
-	return (int_part + frac_part);
+	return ((float)this->val / (1 << _frac_bits));//* this is (e.g.) 11.01 / 2^(_frac_bits) ---> right-shifting the floatint point!
 }
 
-int		Fixed::getRawBits( void )
+int		Fixed::toInt( void ) const
+{
+	return ((int)this->toFloat());
+}
+
+std::ostream&	operator << (std::ostream& ostr, const Fixed& fixed)
+{
+	ostr << fixed.toFloat();
+
+	return (ostr);
+}
+
+int		Fixed::getRawBits( void ) const
 {
 	print_line("getRawBits member function called", BOLDCYAN);
 
@@ -43,7 +50,7 @@ Fixed::Fixed()
 	this->val = 0;
 }
 
-Fixed::Fixed(Fixed &to_copy)
+Fixed::Fixed(const Fixed &to_copy)
 {
 	print_line("Copy constructor called", BOLDGREEN);
 
@@ -54,26 +61,17 @@ Fixed::Fixed(const int val)
 {
 	print_line("Int constructor called", BOLDGREEN);
 
-	this->val = val << _frac_prt;
+	this->val = val << _frac_bits;
 }
-
-static int	decimals(float decimal);
 
 Fixed::Fixed(const float val)
 {
-	print_line("float constructor called", BOLDGREEN);
+	print_line("Float constructor called", BOLDGREEN);
 
+	this->val = roundf(val * (1 << _frac_bits));//* this is (e.g.) 11.01 * 2^(_frac_bits) ---> right-shifting the floatint point!
 }
 
-static int	decimals(float decimal)
-{
-	int	digits;
-
-	while (decimal *= 10)
-		digits++;
-}
-
-Fixed&	Fixed::operator = (Fixed &to_copy)
+Fixed&	Fixed::operator = (const Fixed &to_copy)
 {
 	print_line("Copy assignment operator called", BOLDBLUE);
 

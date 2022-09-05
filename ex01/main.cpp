@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:44:14 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/04 18:44:20 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/05 12:48:45 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,20 @@
 
 int	main( void )
 {
-	Fixed	nbr(1234567);
-	
-	// std::cout << nbr.getRawBits() << std::endl << nbr.toFloat() << std::endl;
-	std::cout << nbr.toFloat() << std::endl;
+	Fixed	a;
+	Fixed	const b( 10 );
+	Fixed	const c( 42.42f );
+	Fixed	const d( b );
+
+	a = Fixed( 1234.4321f );
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	return 0;
 }

@@ -6,14 +6,13 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 15:39:02 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/04 17:50:51 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/05 10:28:03 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.hpp"
 
-static int	fract_part_as_int(float nbr);
-static int	fract_part_rec(float *fract_part);
+static int	fract_part_rec(float decimal, int *result);
 //* end of static declarations
 
 void	print_line(const char *str, const char *color)
@@ -59,9 +58,9 @@ void	int_bit_pad(int *nbr, int bits, bool opt)
 	else
 	{
 		if (opt)
-			*nbr << bits;
+			*nbr = *nbr << bits;
 		else
-			*nbr >> bits;
+			*nbr = *nbr >> bits;
 	}
 }
 
@@ -88,7 +87,8 @@ static int	fract_part_rec(float decimal, int *result)
 
 	if (0 == decimal)
 		return (0);
-	normalized = decimal * 10;
+	std::cout << "cur frac part is: " << decimal << std::endl;
+	normalized = decimal * 10.00000000000000000f;
 	integral_part = (int)normalized;
 	fract_part = normalized - integral_part;
 	weight = fract_part_rec(fract_part, result);

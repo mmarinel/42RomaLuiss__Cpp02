@@ -17,23 +17,28 @@
 # include "utils.hpp"
 # include <iostream>
 
+# include <cmath>
+
 # define MAX_DIGITS_INT 10
 
 class Fixed
 {
 private:
 	int					val;
-	static const int	_frac_prt = 8;
+	static const int	_frac_bits = 8;
 public:
 	float	toFloat( void ) const;
-	int		getRawBits( void );
+	int		toInt( void ) const;
+	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
 			Fixed();
-			Fixed(Fixed &to_copy);
+			Fixed(const Fixed &to_copy);
 			Fixed(const int val);
 			Fixed(const float val);
-			Fixed&	operator = (Fixed &to_copy);
+			Fixed&	operator = (const Fixed &to_copy);
 			~Fixed();
 };
+
+std::ostream&	operator << (std::ostream& ostr, const Fixed& fixed);
 
 #endif /* Fixed_H */
