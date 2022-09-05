@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_pt1.cpp                                      :+:      :+:    :+:   */
+/*   Fixed_oprts_misc.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 15:39:02 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/05 14:16:57 by mmarinel         ###   ########.fr       */
+/*   Created: 2022/09/05 15:50:11 by mmarinel          #+#    #+#             */
+/*   Updated: 2022/09/05 19:21:06 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.hpp"
+#include "Fixed.hpp"
 
-void	print_line(const char *str, const char *color)
+std::ostream&	operator << (std::ostream& ostr, const Fixed& fixed)
 {
-	std::cout << color << str << RESET << std::endl;
+	ostr << fixed.toFloat();
+
+	return (ostr);
+}
+
+Fixed&	Fixed::operator = (const Fixed &to_copy)
+{
+	print_line("Copy assignment operator called", BOLDBLUE);
+
+	this->val = to_copy.getRawBits();
+	return (*this);
 }
