@@ -6,86 +6,94 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 15:51:37 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/06 10:53:27 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/06 18:35:04 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed&	Fixed::operator<<(const int32_t bits)
+const Fixed&	Fixed::operator<<(const int32_t bits)
 {
 	this->val = this->val << bits;
 
 	return (*this);
 }
 
-Fixed&	Fixed::operator>>(const int32_t bits)
+const Fixed&	Fixed::operator>>(const int32_t bits)
 {
 	this->val = this->val >> bits;
 
 	return (*this);
 }
 
-Fixed&	Fixed::operator+(const Fixed &nbr)
+const Fixed	Fixed::operator+(const Fixed &nbr) const
 {
-	this->val += nbr.getRawBits();
+	Fixed	ret;
 
-	return (*this);
+	ret.setRawBits (this->val + nbr.getRawBits());
+	
+	return (ret);
 }
 
-Fixed&	Fixed::operator-(const Fixed &nbr)
+const Fixed	Fixed::operator-(const Fixed &nbr) const
 {
-	this->val -= nbr.getRawBits();
+	Fixed	ret;
+	
+	ret.setRawBits (this->val - nbr.getRawBits());
 
-	return (*this);
+	return (ret);
 }
 
-Fixed&	Fixed::operator*(const Fixed &nbr)
+const Fixed	Fixed::operator*(const Fixed &nbr) const
 {
-	this->val = (int64_t(this->val) * int64_t(nbr.getRawBits())) >> _frac_bits;
+	Fixed	ret;
 
-	return (*this);
+	ret.setRawBits ((int64_t(this->val) * int64_t(nbr.getRawBits())) >> _frac_bits);
+
+	return (ret);
 }
 
-Fixed&	Fixed::operator/(const Fixed &nbr)
+const Fixed	Fixed::operator/(const Fixed &nbr) const
 {
-	this->val = (int64_t(this->val) << _frac_bits) / int64_t(nbr.getRawBits());
+	Fixed	ret;
 
-	return (*this);
+	ret.setRawBits ((int64_t(this->val) << _frac_bits) / int64_t(nbr.getRawBits()));
+
+	return (ret);
 }
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
-float	Fixed::operator++(int32_t nbr)
+const Fixed	Fixed::operator++(int32_t nbr)
 {
-	float	old = this->toFloat();
+	const Fixed	old = *this;
 	this->val = this->val + 1;
 
 	return (old);
 }
 #pragma GCC diagnostic pop
 
-float	Fixed::operator++()
+Fixed&	Fixed::operator++()
 {
 	this->val = this->val + 1;
 
-	return (this->toFloat());
+	return (*this);
 }
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
-float	Fixed::operator--(int32_t nbr)
+const Fixed	Fixed::operator--(int32_t nbr)
 {
-	float	old = this->toFloat();
+	const Fixed	old = *this;
 	this->val = this->val - 1;
 
 	return (old);
 }
 #pragma GCC diagnostic pop
 
-float	Fixed::operator--()
+Fixed&	Fixed::operator--()
 {
 	this->val = this->val - 1;
 
-	return (this->toFloat());
+	return (*this);
 }

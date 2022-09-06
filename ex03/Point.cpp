@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:25:20 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/06 15:25:53 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/06 18:14:36 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ Point&	Point::operator=( const Point& pt )
 {
 	print_line("Point: Copy assignment operator called", BOLDBLUE);
 
+	if (pt.getX() == 0)
+		;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:06:17 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/06 12:57:49 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/06 18:29:53 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@ public:
 	Fixed&					operator = (const Fixed &to_copy);
 
 	//* arithmetic
-	Fixed&					operator+(const Fixed &nbr);
-	Fixed&					operator-(const Fixed &nbr);
-	Fixed&					operator*(const Fixed &nbr);
-	Fixed&					operator/(const Fixed &nbr);
-	Fixed&					operator<<(const int32_t bits);
-	Fixed&					operator>>(const int32_t bits);
+	const Fixed					operator+(const Fixed &nbr) const;
+	const Fixed					operator-(const Fixed &nbr) const;
+	const Fixed					operator*(const Fixed &nbr) const;
+	const Fixed					operator/(const Fixed &nbr) const;
+	const Fixed&				operator<<(const int32_t bits);
+	const Fixed&				operator>>(const int32_t bits);
 
 	//* increment and decrement
-	float					operator++();//* pre-fix
-	float					operator++(int32_t nbr);//* post-fix -----nbr is used as discriminator
-	float					operator--();
-	float					operator--(int32_t nbr);
+	Fixed&						operator++();//* pre-fix
+	const Fixed					operator++(int32_t nbr);//* post-fix -----nbr is used as discriminator
+	Fixed&						operator--();
+	const Fixed					operator--(int32_t nbr);
 
 	//* conditions
 	bool					operator>(const Fixed &nbr) const;

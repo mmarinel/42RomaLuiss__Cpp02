@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:21:08 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/06 15:25:46 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/06 18:10:58 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ private:
 public:
 	const Fixed&	getX( void ) const;
 	const Fixed&	getY( void ) const;
-	Point( const float x, const float y );
-	Point( const Point& pt);
-	Point&	Point::operator=( const Point& pt );
-	Point();
-	~Point();
+					Point( const float x, const float y );
+					Point( const Point& pt);
+	Point&			operator=( const Point& pt );
+					Point();
+					~Point();
 };
 
 

@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.hpp                                          :+:      :+:    :+:   */
+/*   bsp.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 14:38:39 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/06 18:15:55 by mmarinel         ###   ########.fr       */
+/*   Created: 2022/09/06 18:16:05 by mmarinel          #+#    #+#             */
+/*   Updated: 2022/09/06 18:16:31 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef BSP_H
+#define BSP_H
 
-# include <iostream>
-# include "../colors.hpp"
+# include "Fixed.hpp"
+# include "Point.hpp"
 
-void	print_line(const char *str, const char *color);
+bool	bsp( Point const a, Point const b, Point const c, Point const point);
 
-#endif /* UTILS_H */
+
+#endif /* BSP_H */
