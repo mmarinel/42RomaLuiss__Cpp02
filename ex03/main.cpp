@@ -6,24 +6,24 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:44:14 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/06 10:53:50 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/06 19:37:37 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
+#include "bsp.hpp"
 #include <iostream>
 
 int	main ( void )
 {
-	Fixed	a;
-	Fixed	const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	Point	a(1.2f, 0.0f);
+	Point	b(2.7f, 3.1f);
+	Point	c(3.0f, 2.8f);
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
+	Point	toss(1.2f + 0.00872f, 0.0f + 0.1f);
+	if (bsp(a, b, c, toss))
+		std::cout << BOLDGREEN << "inside triangle" << RESET << std::endl;
+	else
+		std::cout << BOLDRED << "outside triangle" << RESET << std::endl;
 	return 0;
 }
