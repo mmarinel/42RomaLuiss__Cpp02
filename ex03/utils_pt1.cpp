@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   utils_pt1.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/20 11:24:55 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/08/20 14:41:52 by mmarinel         ###   ########.fr       */
+/*   Created: 2022/09/04 15:39:02 by mmarinel          #+#    #+#             */
+/*   Updated: 2022/09/06 15:08:52 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
-#define WEAPON_H
+#include "utils.hpp"
 
-#include <string>
-
-class Weapon
+void	print_line(const char *str, const char *color)
 {
-private:
-	std::string	type;
-public:
-	std::string const	&getType( void );
-	void				setType( const char *type_new );
-	Weapon( std::string type );
-	Weapon();
-	~Weapon();
-};
-
-
-#endif /* WEAPON_H */
+	std::cout << color << str << RESET << std::endl;
+}

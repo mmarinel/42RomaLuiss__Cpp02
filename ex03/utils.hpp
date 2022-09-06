@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/20 11:35:41 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/08/20 14:55:10 by mmarinel         ###   ########.fr       */
+/*   Created: 2022/09/06 14:38:39 by mmarinel          #+#    #+#             */
+/*   Updated: 2022/09/06 15:04:02 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_H
-#define HUMANA_H
+#ifndef UTILS_H
+#define UTILS_H
 
-# include "Weapon.hpp"
-# include <string>
+# include <iostream>
+# include <cstdarg>
+# include "Fixed.hpp"
+# include "Point.hpp"
+# include "../colors.hpp"
 
-class HumanA
-{
-private:
-	std::string	name;
-	Weapon		&weapon;
-public:
-	void	attack( void );
-			HumanA( const char *name, Weapon &weapon );
-			~HumanA();
-};
+bool	bsp( Point const a, Point const b, Point const c, Point const point);
+void	print_line(const char *str, const char *color);
+float	ft_min( float arr[], int len, int rank);
 
-
-#endif /* HUMANA_H */
+#endif /* UTILS_H */

@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex04.hpp                                           :+:      :+:    :+:   */
+/*   Fixed_oprts_misc.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/20 15:36:44 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/08/21 10:47:32 by mmarinel         ###   ########.fr       */
+/*   Created: 2022/09/05 15:50:11 by mmarinel          #+#    #+#             */
+/*   Updated: 2022/09/06 14:14:35 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX04_H
-#define EX04_H
+#include "Fixed.hpp"
 
-#include "../colors.hpp"
-#include <string>
-#include <iostream>
-#include <fstream>
+std::ostream&	operator << (std::ostream& ostr, const Fixed& fixed)
+{
+	ostr << fixed.toFloat();
 
-bool	my_sed(std::string filename, std::string to_find, std::string replacement);
+	return (ostr);
+}
 
-//* utils
-size_t	str_last_occurrence(std::string str, char to_find);
-bool	find_success(size_t index);
-
-#endif /* EX04_H */
+Fixed&	Fixed::operator = (const Fixed &to_copy)
+{
+	this->val = to_copy.getRawBits();
+	return (*this);
+}

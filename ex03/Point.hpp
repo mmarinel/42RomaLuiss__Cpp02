@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/20 11:35:53 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/08/20 14:57:39 by mmarinel         ###   ########.fr       */
+/*   Created: 2022/09/06 12:21:08 by mmarinel          #+#    #+#             */
+/*   Updated: 2022/09/06 15:25:46 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_H
-#define HUMANB_H
+#ifndef POINT_H
+#define POINT_H
 
-# include "Weapon.hpp"
-# include <string>
+# include "../colors.hpp"
+# include "Fixed.hpp"
+# include "utils.hpp"
+# include <iostream>
 
-class HumanB
+class Point
 {
 private:
-	std::string	name;
-	Weapon		*weapon;
+	Fixed const	x;
+	Fixed const	y;
 public:
-	void	attack( void );
-	void	setWeapon( Weapon &weapon );
-			HumanB( const char *name );
-			~HumanB();
+	const Fixed&	getX( void ) const;
+	const Fixed&	getY( void ) const;
+	Point( const float x, const float y );
+	Point( const Point& pt);
+	Point&	Point::operator=( const Point& pt );
+	Point();
+	~Point();
 };
 
 
-#endif /* HUMANB_H */
+#endif /* POINT_H */
