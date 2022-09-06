@@ -6,20 +6,20 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 15:51:37 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/05 20:01:34 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/06 10:53:27 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed&	Fixed::operator<<(const int bits)
+Fixed&	Fixed::operator<<(const int32_t bits)
 {
 	this->val = this->val << bits;
 
 	return (*this);
 }
 
-Fixed&	Fixed::operator>>(const int bits)
+Fixed&	Fixed::operator>>(const int32_t bits)
 {
 	this->val = this->val >> bits;
 
@@ -42,50 +42,50 @@ Fixed&	Fixed::operator-(const Fixed &nbr)
 
 Fixed&	Fixed::operator*(const Fixed &nbr)
 {
-	this->val *= nbr.getRawBits();
-	// float	q = nbr.getRawBits();
-	// float	y = this->getRawBits();
-	// std::cout << "multiplying " << q << " with " << y << std::endl;
-	this->val = this->val >> _frac_bits;
+	this->val = (int64_t(this->val) * int64_t(nbr.getRawBits())) >> _frac_bits;
 
 	return (*this);
 }
 
 Fixed&	Fixed::operator/(const Fixed &nbr)
 {
-	this->val /= nbr.getRawBits();
-	this->val = this->val << _frac_bits;
+	this->val = (int64_t(this->val) << _frac_bits) / int64_t(nbr.getRawBits());
 
 	return (*this);
 }
 
-float	Fixed::operator++(int nbr)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+float	Fixed::operator++(int32_t nbr)
 {
-	nbr = this->toFloat();
-	*this = Fixed(this->toFloat() + machine_epsilon());
+	float	old = this->toFloat();
+	this->val = this->val + 1;
 
-	return (nbr);
+	return (old);
 }
+#pragma GCC diagnostic pop
 
 float	Fixed::operator++()
 {
-	*this = Fixed(this->toFloat() + machine_epsilon());
+	this->val = this->val + 1;
 
 	return (this->toFloat());
 }
 
-float	Fixed::operator--(int nbr)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+float	Fixed::operator--(int32_t nbr)
 {
-	nbr = this->toFloat();
-	*this = Fixed(this->toFloat() - machine_epsilon());
+	float	old = this->toFloat();
+	this->val = this->val - 1;
 
-
-	return (nbr);
+	return (old);
 }
+#pragma GCC diagnostic pop
 
 float	Fixed::operator--()
 {
-	*this = Fixed(this->toFloat() - machine_epsilon());
+	this->val = this->val - 1;
 
 	return (this->toFloat());
 }

@@ -48,22 +48,22 @@ Fixed&	Fixed::max(Fixed& a, Fixed& b)
 
 float	Fixed::toFloat( void ) const
 {
-	return ((float)this->val / (1 << _frac_bits));//* this is (e.g.) 11.01 / 2^(_frac_bits) ---> right-shifting the floatint point!
+	return ((float)this->val / (1 << _frac_bits));//* this is (e.g.) 11.01 / 2^(_frac_bits) ---> right-shifting the floating point!
 }
 
-int		Fixed::toInt( void ) const
+int32_t		Fixed::toInt( void ) const
 {
-	return ((int)this->toFloat());
+	return ((int32_t)this->toFloat());
 }
 
-int		Fixed::getRawBits( void ) const
+int32_t		Fixed::getRawBits( void ) const
 {
 	print_line("getRawBits member function called", BOLDCYAN);
 
 	return (this->val);
 }
 
-void	Fixed::setRawBits( int const raw )
+void	Fixed::setRawBits( int32_t const raw )
 {
 	print_line("setRawBits member function called", BOLDCYAN);
 
@@ -84,7 +84,7 @@ Fixed::Fixed(const Fixed &to_copy)
 	*this = to_copy;
 }
 
-Fixed::Fixed(const int val)
+Fixed::Fixed(const int32_t val)
 {
 	print_line("Int constructor called", BOLDGREEN);
 
@@ -95,7 +95,7 @@ Fixed::Fixed(const float val)
 {
 	print_line("Float constructor called", BOLDGREEN);
 
-	this->val = roundf(val * (1 << _frac_bits));//* this is (e.g.) 11.01 * 2^(_frac_bits) ---> right-shifting the floatint point!
+	this->val = roundf(val * (1 << _frac_bits));//* this is (e.g.) 11.01 * 2^(_frac_bits) ---> right-shifting the floating point!
 }
 
 Fixed::~Fixed()

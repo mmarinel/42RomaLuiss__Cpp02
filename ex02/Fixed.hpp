@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                     :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 14:37:42 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/04 15:45:07 by mmarinel         ###   ########.fr       */
+/*   Created: 2022/09/06 10:06:17 by mmarinel          #+#    #+#             */
+/*   Updated: 2022/09/06 10:48:50 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@
 class Fixed
 {
 private:
-	int						val;
+	int32_t						val;
 	static const int		_frac_bits = 8;
 public:
 	float					toFloat( void ) const;
-	int						toInt( void ) const;
-	int						getRawBits( void ) const;
-	void					setRawBits( int const raw );
+	int32_t					toInt( void ) const;
+	int32_t					getRawBits( void ) const;
+	void					setRawBits( int32_t const raw );
 	// static float			machine_epsilon( void );
 
 	//* arithmetic
@@ -36,14 +36,14 @@ public:
 	Fixed&					operator-(const Fixed &nbr);
 	Fixed&					operator*(const Fixed &nbr);
 	Fixed&					operator/(const Fixed &nbr);
-	Fixed&					operator<<(const int bits);
-	Fixed&					operator>>(const int bits);
+	Fixed&					operator<<(const int32_t bits);
+	Fixed&					operator>>(const int32_t bits);
 
 	//* increment and decrement
 	float					operator++();//* pre-fix
-	float					operator++(int nbr);//* post-fix -----nbr is used as discriminator
+	float					operator++(int32_t nbr);//* post-fix -----nbr is used as discriminator
 	float					operator--();
-	float					operator--(int nbr);
+	float					operator--(int32_t nbr);
 
 	//* conditions
 	bool					operator>(const Fixed &nbr) const;
@@ -60,7 +60,7 @@ public:
 							Fixed&	operator = (const Fixed &to_copy);
 							Fixed();
 							Fixed(const Fixed &to_copy);
-							Fixed(const int val);
+							Fixed(const int32_t val);
 							Fixed(const float val);
 							~Fixed();
 };
