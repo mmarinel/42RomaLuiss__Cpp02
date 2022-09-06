@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:06:17 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/06 10:48:50 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/06 11:04:57 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ public:
 	int32_t					toInt( void ) const;
 	int32_t					getRawBits( void ) const;
 	void					setRawBits( int32_t const raw );
-	// static float			machine_epsilon( void );
 
 	//* arithmetic
 	Fixed&					operator+(const Fixed &nbr);

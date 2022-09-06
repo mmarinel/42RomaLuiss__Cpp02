@@ -12,20 +12,6 @@
 
 #include "Fixed.hpp"
 
-// float	Fixed::machine_epsilon( void )
-// {
-// 	Fixed		prog(1);
-// 	const Fixed	unit(1);
-// 	Fixed		epsilon;
-
-// 	do
-// 	{
-// 		epsilon = prog;
-// 		prog = prog >> 2;
-// 	} while(prog + unit > unit);
-// 	return (epsilon.toFloat());
-// }
-
 const Fixed&	Fixed::min(const Fixed& a, const Fixed& b)
 {
 	return (a < b ? a : b);
