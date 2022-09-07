@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:44:14 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/06 19:37:37 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/07 10:43:26 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main ( void )
 	Point	b(2.7f, 3.1f);
 	Point	c(3.0f, 2.8f);
 
-	Point	toss(1.2f + 0.00872f, 0.0f + 0.1f);
+	Point	toss(1.3f + 0.00872f, 0.0f + 0.1f);
 	if (bsp(a, b, c, toss))
 		std::cout << BOLDGREEN << "inside triangle" << RESET << std::endl;
 	else

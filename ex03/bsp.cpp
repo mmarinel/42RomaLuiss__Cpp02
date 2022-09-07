@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:46:48 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/07 10:14:04 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/07 10:47:42 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool	bsp( Point const a, Point const b, Point const c, Point const point)
 		Fixed(
 			area - (squaredTriangleArea(point, a, b) + squaredTriangleArea(point, a, c) + squaredTriangleArea(point, b, c))
 		).abs()
-		< Fixed::machine_epsilon()
+		<= Fixed::machine_epsilon().toFloat() * 10
 	);
 }
 
