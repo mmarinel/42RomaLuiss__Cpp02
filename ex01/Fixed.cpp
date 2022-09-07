@@ -14,7 +14,7 @@
 
 float	Fixed::toFloat( void ) const
 {
-	return ((float)this->val / (1 << _frac_bits));//* this is (e.g.) 11.01 / 2^(_frac_bits) ---> right-shifting the floatint point!
+	return ((float)this->val / (1 << _frac_bits));//* this is (e.g.) 11.01 / 2^(_frac_bits) ---> right-shifting the decimal point!
 }
 
 int		Fixed::toInt( void ) const
@@ -68,7 +68,7 @@ Fixed::Fixed(const float val)
 {
 	print_line("Float constructor called", BOLDGREEN);
 
-	this->val = roundf(val * (1 << _frac_bits));//* this is (e.g.) 11.01 * 2^(_frac_bits) ---> right-shifting the floatint point!
+	this->val = roundf(val * (1 << _frac_bits));//* this is (e.g.) 11.01 * 2^(_frac_bits) ---> right-shifting the decimal point!
 }
 
 Fixed&	Fixed::operator = (const Fixed &to_copy)
