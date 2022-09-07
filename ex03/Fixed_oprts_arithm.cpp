@@ -6,11 +6,20 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 15:51:37 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/06 18:35:04 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/07 10:12:44 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const Fixed	Fixed::operator-( void ) const
+{
+	Fixed	neg;
+
+	neg.setRawBits(-this->val);
+	
+	return (neg);
+}
 
 const Fixed&	Fixed::operator<<(const int32_t bits)
 {

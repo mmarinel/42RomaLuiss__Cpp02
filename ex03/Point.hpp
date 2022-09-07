@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:21:08 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/06 18:10:58 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/07 10:05:36 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../colors.hpp"
 # include "Fixed.hpp"
-# include "utils.hpp"
 # include <iostream>
 
 class Point

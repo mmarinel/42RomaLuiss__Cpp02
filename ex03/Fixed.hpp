@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:06:17 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/06 18:29:53 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/07 10:11:20 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define FIXED_H
 
 # include "../colors.hpp"
-# include "utils.hpp"
 # include <iostream>
 
 # include <cmath>
@@ -29,10 +28,14 @@ public:
 	int32_t					toInt( void ) const;
 	int32_t					getRawBits( void ) const;
 	void					setRawBits( int32_t const raw );
+	const Fixed				abs( void ) const;
+	static void				insSort(Fixed nbrs[], size_t len);
+	static const Fixed		machine_epsilon( void );
 
 	Fixed&					operator = (const Fixed &to_copy);
 
 	//* arithmetic
+	const Fixed					operator-( void ) const;//* NEGATION
 	const Fixed					operator+(const Fixed &nbr) const;
 	const Fixed					operator-(const Fixed &nbr) const;
 	const Fixed					operator*(const Fixed &nbr) const;

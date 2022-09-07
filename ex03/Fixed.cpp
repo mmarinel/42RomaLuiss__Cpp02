@@ -12,6 +12,48 @@
 
 #include "Fixed.hpp"
 
+static void	fixed_swap(Fixed *a, Fixed *b);
+//* end of static declarations
+
+const Fixed	Fixed::abs( void ) const
+{
+	if (*this < Fixed(0))
+		return (-*this);
+	else
+		return (*this);
+}
+
+const Fixed	Fixed::machine_epsilon( void )
+{
+	Fixed	eps;
+
+	eps.setRawBits(1);
+	return (eps);
+}
+
+void	Fixed::insSort(Fixed nbrs[], size_t len)
+{
+	size_t	min_idx;
+
+	for (size_t i = 0; i < len; i++)
+	{
+		min_idx = i;
+		for(size_t j = i + 1; j < len; j++)
+			if (nbrs[j] < nbrs[min_idx])
+				min_idx = j;
+		fixed_swap(nbrs + i, nbrs + min_idx);
+	}
+}
+
+static void	fixed_swap(Fixed *a, Fixed *b)
+{
+	Fixed	*backup;
+
+	backup = a;
+	*a = *b;
+	*b = *backup;
+}
+
 const Fixed&	Fixed::min(const Fixed& a, const Fixed& b)
 {
 	return (a < b ? a : b);
