@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:46:48 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/07 10:59:16 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/07 21:24:35 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static Fixed	pointSummedUpArea( Point const a, Point const b, Point const c, Poi
 bool	bsp( Point const a, Point const b, Point const c, Point const point )
 {
 	Fixed	area = squaredTriangleArea(a, b, c);
-
 	return (
 		Fixed(
 			area - pointSummedUpArea(a, b, c, point)
@@ -47,6 +46,15 @@ static Fixed	squaredDistance( Point const p_1, Point const p_2 )
 	);
 }
 
+/**
+ * @brief this function calculates the (squared) area
+ * of a triangle using the "Qin Jiushao" formula.
+ * 
+ * @param a 
+ * @param b 
+ * @param c 
+ * @return Fixed 
+ */
 static Fixed	squaredTriangleArea( Point const a, Point const b, Point const c )
 {
 	Fixed	sides[3]
@@ -58,5 +66,15 @@ static Fixed	squaredTriangleArea( Point const a, Point const b, Point const c )
 		};
 	Fixed::insSort(sides, 3);
 
-	return ((sides[0] * sides[1]) / 4);
+	return (
+		(
+			(sides[2] * sides[0])
+				- (
+					(sides[2] + sides[0] - sides[1])
+						* (sides[2] + sides[0] - sides[1])
+					/ Fixed(4)
+				)
+		)
+		/ Fixed(4)
+	);
 }

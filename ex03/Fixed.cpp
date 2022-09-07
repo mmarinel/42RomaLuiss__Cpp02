@@ -31,7 +31,6 @@ const Fixed	Fixed::machine_epsilon( void )
 	return (eps);
 }
 
-
 const Fixed	Fixed::tolerance( void )
 {
 	Fixed	tol = Fixed(Fixed::machine_epsilon().toFloat() * 10.0f);
@@ -43,7 +42,7 @@ void	Fixed::insSort(Fixed nbrs[], size_t len)
 {
 	size_t	min_idx;
 
-	for (size_t i = 0; i < len; i++)
+	for (size_t i = 0; i < len - 1; i++)
 	{
 		min_idx = i;
 		for(size_t j = i + 1; j < len; j++)
@@ -55,11 +54,11 @@ void	Fixed::insSort(Fixed nbrs[], size_t len)
 
 static void	fixed_swap(Fixed *a, Fixed *b)
 {
-	Fixed	*backup;
+	Fixed	backup;
 
-	backup = a;
+	backup = *a;
 	*a = *b;
-	*b = *backup;
+	*b = backup;
 }
 
 const Fixed&	Fixed::min(const Fixed& a, const Fixed& b)
