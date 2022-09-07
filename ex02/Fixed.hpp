@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:06:17 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/06 11:04:57 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/07 11:26:26 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define FIXED_H
 
 # include "../colors.hpp"
-# include "utils.hpp"
 # include <iostream>
 
 # include <cmath>
@@ -30,19 +29,22 @@ public:
 	int32_t					getRawBits( void ) const;
 	void					setRawBits( int32_t const raw );
 
+	Fixed&					operator = (const Fixed &to_copy);
+
 	//* arithmetic
-	Fixed&					operator+(const Fixed &nbr);
-	Fixed&					operator-(const Fixed &nbr);
-	Fixed&					operator*(const Fixed &nbr);
-	Fixed&					operator/(const Fixed &nbr);
-	Fixed&					operator<<(const int32_t bits);
-	Fixed&					operator>>(const int32_t bits);
+	const Fixed					operator-( void ) const;//* NEGATION
+	const Fixed					operator+(const Fixed &nbr) const;
+	const Fixed					operator-(const Fixed &nbr) const;
+	const Fixed					operator*(const Fixed &nbr) const;
+	const Fixed					operator/(const Fixed &nbr) const;
+	const Fixed&				operator<<(const int32_t bits);
+	const Fixed&				operator>>(const int32_t bits);
 
 	//* increment and decrement
-	float					operator++();//* pre-fix
-	float					operator++(int32_t nbr);//* post-fix -----nbr is used as discriminator
-	float					operator--();
-	float					operator--(int32_t nbr);
+	Fixed&						operator++();//* pre-fix
+	const Fixed					operator++(int32_t nbr);//* post-fix -----nbr is used as discriminator
+	Fixed&						operator--();
+	const Fixed					operator--(int32_t nbr);
 
 	//* conditions
 	bool					operator>(const Fixed &nbr) const;
@@ -56,7 +58,6 @@ public:
 	static Fixed&			min(Fixed& a, Fixed& b);
 	static const Fixed&		max(const Fixed& a, const Fixed& b);
 	static Fixed&			max(Fixed& a, Fixed& b);
-							Fixed&	operator = (const Fixed &to_copy);
 							Fixed();
 							Fixed(const Fixed &to_copy);
 							Fixed(const int32_t val);
