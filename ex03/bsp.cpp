@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:46:48 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/07 10:47:42 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/07 10:59:16 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,28 @@
 
 static Fixed	squaredTriangleArea( Point const a, Point const b, Point const c );
 static Fixed	squaredDistance( Point const a, Point const b );
+static Fixed	pointSummedUpArea( Point const a, Point const b, Point const c, Point const point );
 //* end of static declarations
 
-bool	bsp( Point const a, Point const b, Point const c, Point const point)
+bool	bsp( Point const a, Point const b, Point const c, Point const point )
 {
 	Fixed	area = squaredTriangleArea(a, b, c);
 
 	return (
 		Fixed(
-			area - (squaredTriangleArea(point, a, b) + squaredTriangleArea(point, a, c) + squaredTriangleArea(point, b, c))
+			area - pointSummedUpArea(a, b, c, point)
 		).abs()
-		<= Fixed::machine_epsilon().toFloat() * 10
+		<= Fixed::tolerance()
+	);
+}
+
+static Fixed	pointSummedUpArea( Point const a, Point const b, Point const c,
+					Point const point )
+{
+	return (
+		squaredTriangleArea(point, a, b)
+		+ squaredTriangleArea(point, a, c)
+		+ squaredTriangleArea(point, b, c)
 	);
 }
 

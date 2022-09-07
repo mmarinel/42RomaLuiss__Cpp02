@@ -31,6 +31,14 @@ const Fixed	Fixed::machine_epsilon( void )
 	return (eps);
 }
 
+
+const Fixed	Fixed::tolerance( void )
+{
+	Fixed	tol = Fixed(Fixed::machine_epsilon().toFloat() * 10.0f);
+
+	return (tol);
+}
+
 void	Fixed::insSort(Fixed nbrs[], size_t len)
 {
 	size_t	min_idx;

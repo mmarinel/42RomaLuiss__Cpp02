@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:06:17 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/07 10:11:20 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/07 10:55:20 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ public:
 	const Fixed				abs( void ) const;
 	static void				insSort(Fixed nbrs[], size_t len);
 	static const Fixed		machine_epsilon( void );
+	static const Fixed		tolerance( void );
 
 	Fixed&					operator = (const Fixed &to_copy);
 
