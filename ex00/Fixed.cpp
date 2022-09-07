@@ -12,14 +12,14 @@
 
 #include "Fixed.hpp"
 
-int		Fixed::getRawBits( void )
+int		Fixed::getRawBits( void ) const
 {
 	print_line("getRawBits member function called", BOLDCYAN);
 
 	return (this->val);
 }
 
-void	Fixed::setRawBits( int const raw ) const
+void	Fixed::setRawBits( int const raw )
 {
 	print_line("setRawBits member function called", BOLDCYAN);
 
