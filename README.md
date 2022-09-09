@@ -51,7 +51,7 @@ So, as we can see from our image, the following must be true
 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_similar.gif)
 
-Therefore the following holds
+Therefore, the following holds
 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_similar_2.gif)
 
