@@ -78,7 +78,7 @@ as a system of equations on two unknowns on the `x, y` components
 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_eq_sys.gif)
 
-that's because we have to subtract the coordinates of point `B` in this new system of coordinates as follows:
+Having shifted our plane, we have to subtract the coordinates of point `B` in this new system of coordinates as follows:
 - new x of B is old x of B minus old x of A (because we shifted the plane)
 - new y of B ...//the same
 
