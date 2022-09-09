@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:06:17 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/07 11:26:26 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/09 17:31:46 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ public:
 	const Fixed					operator-(const Fixed &nbr) const;
 	const Fixed					operator*(const Fixed &nbr) const;
 	const Fixed					operator/(const Fixed &nbr) const;
-	const Fixed&				operator<<(const int32_t bits);
-	const Fixed&				operator>>(const int32_t bits);
 
 	//* increment and decrement
 	Fixed&						operator++();//* pre-fix

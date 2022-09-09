@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 15:51:37 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/07 10:12:44 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/09 17:31:31 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,6 @@ const Fixed	Fixed::operator-( void ) const
 	neg.setRawBits(-this->val);
 	
 	return (neg);
-}
-
-const Fixed&	Fixed::operator<<(const int32_t bits)
-{
-	this->val = this->val << bits;
-
-	return (*this);
-}
-
-const Fixed&	Fixed::operator>>(const int32_t bits)
-{
-	this->val = this->val >> bits;
-
-	return (*this);
 }
 
 const Fixed	Fixed::operator+(const Fixed &nbr) const
