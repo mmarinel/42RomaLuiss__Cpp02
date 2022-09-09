@@ -6,75 +6,35 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:46:48 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/07 21:24:35 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/09 12:36:42 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsp.hpp"
 
-static Fixed	squaredTriangleArea( Point const a, Point const b, Point const c );
-static Fixed	squaredDistance( Point const a, Point const b );
-static Fixed	pointSummedUpArea( Point const a, Point const b, Point const c, Point const point );
-//* end of static declarations
-
 bool	bsp( Point const a, Point const b, Point const c, Point const point )
 {
-	Fixed	area = squaredTriangleArea(a, b, c);
-	return (
-		Fixed(
-			area - pointSummedUpArea(a, b, c, point)
-		).abs()
-		<= Fixed::tolerance()
-	);
-}
-
-static Fixed	pointSummedUpArea( Point const a, Point const b, Point const c,
-					Point const point )
-{
-	return (
-		squaredTriangleArea(point, a, b)
-		+ squaredTriangleArea(point, a, c)
-		+ squaredTriangleArea(point, b, c)
-	);
-}
-
-static Fixed	squaredDistance( Point const p_1, Point const p_2 )
-{
-	return (
-		(p_1.getX() - p_2.getX()) * (p_1.getX() - p_2.getX())
-		+ (p_1.getY() - p_2.getY()) * (p_1.getY() - p_2.getY())
-	);
-}
-
-/**
- * @brief this function calculates the (squared) area
- * of a triangle using the "Qin Jiushao" formula.
- * 
- * @param a 
- * @param b 
- * @param c 
- * @return Fixed 
- */
-static Fixed	squaredTriangleArea( Point const a, Point const b, Point const c )
-{
-	Fixed	sides[3]
-		= 
-		{
-			squaredDistance(a, b),
-			squaredDistance(a, c),
-			squaredDistance(b, c)
-		};
-	Fixed::insSort(sides, 3);
-
-	return (
+	Fixed	_YcMinusYa = c.getY() - a.getY();
+	Fixed	_XcMinusXa = c.getX() - a.getX();
+	Fixed	w1 =(
 		(
-			(sides[2] * sides[0])
-				- (
-					(sides[2] + sides[0] - sides[1])
-						* (sides[2] + sides[0] - sides[1])
-					/ Fixed(4)
-				)
+			_YcMinusYa*(point.getX() - a.getX())
+			- (point.getY() - a.getY())*_XcMinusXa
 		)
-		/ Fixed(4)
+		/
+		(
+			_YcMinusYa*(b.getX() - a.getX())
+			- (b.getY() - a.getY())*_XcMinusXa
+		)
 	);
+	Fixed	w2 =(
+		(
+			point.getY() - a.getY() - w1 * (b.getY() - a.getY())
+		)
+		/
+		(
+			_YcMinusYa
+		)
+	);
+	return (w1 + w2 < Fixed(1));
 }

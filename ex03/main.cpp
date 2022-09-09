@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:44:14 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/07 21:24:26 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/09 12:55:29 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static	void	bsp_check( Point a, Point b, Point c,
 
 int	main ( void )
 {
-	bsp_check(Point(1.2f, 0.0f), Point(2.7f, 3.1f), Point(3.0f, 2.8f), Point(1.3f + 0.00872f, 0.0f + 0.1f));
+	bsp_check(Point(1, 2), Point(11, 2), Point(6, 8), Point(11.3f, 2));
 	bsp_check(Point(1, 0), Point(5, -3), Point(4, 4), Point(3, 0.5));
 	bsp_check(Point(0, 0), Point(1, 0), Point(0.5, 1), Point(0.5, 0.5));
 	bsp_check(Point(0, 0), Point(6, 0), Point(3, 5), Point(3, 1));
