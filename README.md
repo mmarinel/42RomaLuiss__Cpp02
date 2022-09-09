@@ -69,7 +69,7 @@ Imagine to [translate](https://en.wikipedia.org/wiki/Translation_(geometry)) our
 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_linear_comb.gif)
 
-as as system of the equation on two unknowns on the `x, y` components
+as a system of the equation on two unknowns on the `x, y` components
 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_eq_sys.gif)
 
