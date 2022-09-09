@@ -37,9 +37,14 @@ of two vertices, such as
 - If we set `w1 = 0, w2 = 1` we obtain point `C`
 - If we set `w1 = 0, w2 = 0` we obtain point `A`
 
-We notice that by playing with our weights we can get different vectors. Also, by the [parallelogram law](https://en.wikipedia.org/wiki/Parallelogram_law), we go towards the `AB` edge as our weights grow.
+We notice that by playing with our weights we can get different vectors.
 
-Now, the point is to determine the conditions for which our point lies on the `AB` edge, so that we can state a constraint on the weights telling us whether our point is inside or outside the triangle.
+In particular, by the [parallelogram law](https://en.wikipedia.org/wiki/Parallelogram_law),
+
+1. we go towards the `BC` edge as our weights grow in the range `[0, 1]`.
+2. we go beyond edges `AB` and/or `AC` when our weights are either or both negative
+
+Now, the point is to determine the condition for which our point lies on the `AB` edge, so that we can state a constraint on the weights telling us whether our point is inside or outside the triangle.
 
 Let's picture a case when our point lies on the edge
 
@@ -58,7 +63,7 @@ Therefore, the following holds
 which is just 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_similar_3.gif)
 
-**So, we can now state that, for our point being inside the triangle, it must be that the sum of its weights must not be greater than `1`!**.
+**So, we can now state that, for our point being inside the triangle, it must be that the sum of its weights must not be greater than `1` with both weights positive!**.
 
 
 But how can we calculate our weights? And is there a unique set of weights for each point?
