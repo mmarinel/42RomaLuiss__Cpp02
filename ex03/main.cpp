@@ -6,13 +6,14 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:44:14 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/09 12:55:29 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/09 14:38:08 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #include "bsp.hpp"
 #include <iostream>
+#include <iomanip>
 
 static	void	bsp_check( Point a, Point b, Point c,
 					Point toss );
@@ -21,7 +22,8 @@ static	void	bsp_check( Point a, Point b, Point c,
 int	main ( void )
 {
 	bsp_check(Point(1, 2), Point(11, 2), Point(6, 8), Point(11.3f, 2));
-	bsp_check(Point(1, 0), Point(5, -3), Point(4, 4), Point(3, 0.5));
+	bsp_check(Point(1, 0), Point(5, -3), Point(4, 4), Point(3, 2.5));
+	bsp_check(Point(1, 0), Point(5, -3), Point(4, 4), Point(3, 2.7));
 	bsp_check(Point(0, 0), Point(1, 0), Point(0.5, 1), Point(0.5, 0.5));
 	bsp_check(Point(0, 0), Point(6, 0), Point(3, 5), Point(3, 1));
 	bsp_check(Point(0, 0), Point(16, 0), Point(8, 12), Point(8, 5));
@@ -43,6 +45,8 @@ static	void	bsp_check( Point a, Point b, Point c,
 		<< "\t\ta (" << a.getX() << ", " << a.getY() << ")"
 		<< "\t\tb (" << b.getX() << ", " << b.getY() << ")"
 		<< "\t\tc (" << c.getX() << ", " << c.getY() << ")"
+		<< std::endl
+		<< "**************************************************************************"
 		<< std::endl;
 }
 

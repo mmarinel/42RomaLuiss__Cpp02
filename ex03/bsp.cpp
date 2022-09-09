@@ -6,7 +6,7 @@
 /*   By: mmarinel <mmarinel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:46:48 by mmarinel          #+#    #+#             */
-/*   Updated: 2022/09/09 12:36:42 by mmarinel         ###   ########.fr       */
+/*   Updated: 2022/09/09 14:21:47 by mmarinel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,9 @@ bool	bsp( Point const a, Point const b, Point const c, Point const point )
 			_YcMinusYa
 		)
 	);
-	return (w1 + w2 < Fixed(1));
+	return (
+		w1 > 0 &&
+		w2 > 0 &&
+		w1 + w2 < Fixed(1)
+	);
 }
