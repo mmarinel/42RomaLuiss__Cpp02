@@ -45,31 +45,31 @@ Let's picture a case when our point lies on the edge
 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_triangle_edge.png)
 
-We immediately recognize, by the [parallelogram law](https://en.wikipedia.org/wiki/Parallelogram_law), that the sum vector forms a similar triangle with respect to original one.
+We immediately recognize, by the [parallelogram law](https://en.wikipedia.org/wiki/Parallelogram_law), that the sum vector forms a similar triangle with respect to the original one.
 
 So, as we can see from our image, the following must be true
 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_similar.gif)
 
-Therefore the following holds
+Therefore, the following holds
 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_similar_2.gif)
 
 which is just 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_similar_3.gif)
 
-**So, we can now state that, four point being inside the triangle, it must be that the sum of its weights must not be greater than `1`!**.
+**So, we can now state that, for our point being inside the triangle, it must be that the sum of its weights must not be greater than `1`!**.
 
 
-But, how can we calculate our weights, and is there a unique set of weights for each point?
+But how can we calculate our weights? And is there a unique set of weights for each point?
 
 The answer to the last question is yes, and by answering why it we will also answer the first one.
 
-Imagine to (translate)[https://en.wikipedia.org/wiki/Translation_(geometry)] our plane so that the origin is on point `A`. Then, we can describe equation 
+Imagine to [translate](https://en.wikipedia.org/wiki/Translation_(geometry)) our plane so that the origin is on point `A`. Then, we can describe equation 
 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_linear_comb.gif)
 
-as as system of the equation on two unknowns on the `x, y` components
+as a system of equations on two unknowns on the `x, y` components
 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_eq_sys.gif)
 
