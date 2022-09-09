@@ -61,7 +61,7 @@ which is just
 **So, we can now state that, for our point being inside the triangle, it must be that the sum of its weights must not be greater than `1`!**.
 
 
-But, how can we calculate our weights, and is there a unique set of weights for each point?
+But how can we calculate our weights? And is there a unique set of weights for each point?
 
 The answer to the last question is yes, and by answering why it we will also answer the first one.
 
