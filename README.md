@@ -45,7 +45,7 @@ Let's picture a case when our point lies on the edge
 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_triangle_edge.png)
 
-We immediately recognize, by the [parallelogram law](https://en.wikipedia.org/wiki/Parallelogram_law), that the sum vector forms a similar triangle with respect to original one.
+We immediately recognize, by the [parallelogram law](https://en.wikipedia.org/wiki/Parallelogram_law), that the sum vector forms a similar triangle with respect to the original one.
 
 So, as we can see from our image, the following must be true
 
