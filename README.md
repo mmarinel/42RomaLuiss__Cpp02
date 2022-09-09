@@ -58,7 +58,7 @@ Therefore, the following holds
 which is just 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_similar_3.gif)
 
-**So, we can now state that, four point being inside the triangle, it must be that the sum of its weights must not be greater than `1`!**.
+**So, we can now state that, for our point being inside the triangle, it must be that the sum of its weights must not be greater than `1`!**.
 
 
 But, how can we calculate our weights, and is there a unique set of weights for each point?
