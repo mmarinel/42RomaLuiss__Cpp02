@@ -68,7 +68,7 @@ which is just
 
 But how can we calculate our weights? And is there a unique set of weights for each point?
 
-The answer to the last question is yes, and by answering why it we will also answer the first one.
+The answer to the last question is yes, and by answering it we will also answer the first one.
 
 Imagine to [translate](https://en.wikipedia.org/wiki/Translation_(geometry)) our plane so that the origin is on point `A`. Then, we can describe equation 
 
