@@ -65,7 +65,7 @@ But how can we calculate our weights? And is there a unique set of weights for e
 
 The answer to the last question is yes, and by answering why it we will also answer the first one.
 
-Imagine to (translate)[https://en.wikipedia.org/wiki/Translation_(geometry)] our plane so that the origin is on point `A`. Then, we can describe equation 
+Imagine to [translate](https://en.wikipedia.org/wiki/Translation_(geometry)) our plane so that the origin is on point `A`. Then, we can describe equation 
 
 ![](https://github.com/mmarinel/42RomaLuiss__Cpp02/blob/master/formulas/bsp_linear_comb.gif)
 
